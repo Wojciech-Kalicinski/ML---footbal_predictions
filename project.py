@@ -1,62 +1,69 @@
 import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.metrics import accuracy_score, precision_score, classification_report
+from sklearn.metrics import precision_score
 
-# Wczytanie danych
-matches = pd.read_csv("E0.csv", index_col=0)
+# Wczytanie plików, pomijając problematyczne wiersze
+matches = pd.read_csv("E0.csv", index_col=0, on_bad_lines="skip")
+matches2 = pd.read_csv("E1.csv", index_col=0, on_bad_lines="skip")
 
-# Wyświetlanie kilku pierwszych wierszy oraz kształtu danych
-print(matches.head())
-print(matches.shape)
+# Dopasowanie brakujących kolumn
+cols1 = set(matches.columns)
+cols2 = set(matches2.columns)
 
-# Przekształcenie daty, aby nie pojawiało się ostrzeżenie
-matches["Date"] = pd.to_datetime(matches["Date"], dayfirst=True)
+missing_in_matches = cols2 - cols1
+missing_in_matches2 = cols1 - cols2
 
-# Dodanie kodów dla drużyn
-matches["venue_code"] = matches["HomeTeam"].astype("category").cat.codes
-matches["opp_code"] = matches["AwayTeam"].astype("category").cat.codes
+for col in missing_in_matches:
+    matches[col] = None
+for col in missing_in_matches2:
+    matches2[col] = None
 
-# Dodanie godziny meczu
-matches["hour"] = matches["Time"].str.replace(":.+", "", regex=True).astype("int")
+# Uporządkowanie kolumn
+common_cols = sorted(list(cols1.union(cols2)))
+matches = matches[common_cols]
+matches2 = matches2[common_cols]
 
-# Dodanie kodu dnia tygodnia
-matches["day_code"] = matches["Date"].dt.day_of_week
+# Połączenie danych
+combined_data = pd.concat([matches, matches2], ignore_index=True)
 
-# Tworzenie kolumny 'target' z wynikiem meczu (1 - wygrana gospodarzy, 0 - remis, -1 - wygrana gości)
-matches["target"] = matches["FTR"].map({"H": 1, "D": 0, "A": -1})
+# Przetwarzanie
+combined_data["Date"] = pd.to_datetime(combined_data["Date"], dayfirst=True)
+combined_data["venue_code"] = combined_data["HomeTeam"].astype("category").cat.codes
+combined_data["opp_code"] = combined_data["AwayTeam"].astype("category").cat.codes
+combined_data["hour"] = combined_data["Time"].str.replace(":.+", "", regex=True).astype("int")
+combined_data["day_code"] = combined_data["Date"].dt.day_of_week
+combined_data["target"] = combined_data["FTR"].map({"H": 1, "D": 0, "A": -1})
 
-# Sprawdzenie brakujących danych
-print("Brakujące dane:\n", matches.isnull().sum())
+# Rolling averages
+cols = ["FTHG", "FTAG", "HS", "HST"]
+new_cols = [f"{c}_rolling" for c in cols]
 
-# Tworzenie modelu Random Forest
-rf = RandomForestClassifier(n_estimators=50, min_samples_split=10, random_state=1)
+def rolling_averages(group, cols, new_cols):
+    group = group.sort_values("Date")
+    rolling_stats = group[cols].rolling(3, closed="left").mean()
+    for new_col, col in zip(new_cols, cols):
+        group[new_col] = rolling_stats[col]
+    return group.dropna()
 
-# Podział na zbiory treningowe i testowe
-train = matches[matches["Date"] < '2024-09-30']
-test = matches[matches["Date"] >= '2024-09-30']
+matches_rolling = combined_data.groupby("HomeTeam", group_keys=False).apply(
+    lambda x: rolling_averages(x, cols, new_cols)
 
-# Predyktory używane do trenowania modelu
-predictor = ["venue_code", "opp_code", "hour", "day_code"]
+    
+)
 
-# Trenowanie modelu
-rf.fit(train[predictor], train["target"])
+# Predykcja
+def make_prediction(data, predictors):
+    train = data[data["Date"] < "2024-01-01"]
+    test = data[data["Date"] >= "2024-01-01"]
+    rf = RandomForestClassifier(n_estimators=50, min_samples_split=10, random_state=1)
+    rf.fit(train[predictors], train["target"])
+    preds = rf.predict(test[predictors])
+    precision = precision_score(test["target"], preds, average="weighted", zero_division=1)
+    return preds, precision
 
-# Predykcje na zbiorze testowym
-preds = rf.predict(test[predictor])
+predictors = ["venue_code", "opp_code", "hour", "day_code", "FTHG_rolling", "FTAG_rolling"]
+results, precision = make_prediction(matches_rolling, predictors)
 
-# Ocena modelu
-acc = accuracy_score(test["target"], preds)
-print(f"Dokładność modelu: {acc}")
-
-# Tabela porównująca predykcje z rzeczywistością
-combined = pd.DataFrame(dict(actual=test["target"], prediction=preds))
-print(pd.crosstab(index=combined["actual"], columns=combined["prediction"]))
-
-# Ocena precision dla wieloklasowego problemu
-# Ustawienie `average='weighted'` dla obsługi wieloklasowej
-prec = precision_score(test["target"], preds, average='weighted')
-print(f"Precision (wieloklasowe): {prec}")
-
-# Szczegółowy raport klasyfikacji
-print("\nRaport klasyfikacji:\n")
-print(classification_report(test["target"], preds))
+print(f"Precision: {precision}")
+ 
+print(matches_rolling)
