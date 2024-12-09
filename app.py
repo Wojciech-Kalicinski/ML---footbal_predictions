@@ -1,8 +1,11 @@
+from flask import Flask, request, jsonify
 import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import precision_score
 
-# Wczytanie plików, pomijając problematyczne wiersze
+app = Flask(__name__)
+
+# Wczytanie i przygotowanie danych (na starcie aplikacji)
 matches = pd.read_csv("E0.csv", index_col=0, on_bad_lines="skip")
 matches2 = pd.read_csv("E1.csv", index_col=0, on_bad_lines="skip")
 
@@ -47,23 +50,46 @@ def rolling_averages(group, cols, new_cols):
 
 matches_rolling = combined_data.groupby("HomeTeam", group_keys=False).apply(
     lambda x: rolling_averages(x, cols, new_cols)
-
-    
 )
 
-# Predykcja
-def make_prediction(data, predictors):
-    train = data[data["Date"] < "2024-01-01"]
-    test = data[data["Date"] >= "2024-01-01"]
+# Funkcja predykcji
+def make_prediction(home_team, away_team, date, predictors):
+    # Dodaj dane o przyszłym meczu
+    new_match = pd.DataFrame({
+        "Date": [pd.to_datetime(date)],
+        "HomeTeam": [home_team],
+        "AwayTeam": [away_team],
+        "venue_code": [combined_data["HomeTeam"].astype("category").cat.categories.get_loc(home_team)],
+        "opp_code": [combined_data["AwayTeam"].astype("category").cat.categories.get_loc(away_team)],
+        "hour": [15],  # Przykładowa godzina
+        "day_code": [pd.to_datetime(date).day_of_week],
+    })
+    
+    # Uzupełnij rolling averages na 0 (dla nowych danych)
+    for col in new_cols:
+        new_match[col] = 0
+
+    # Trening modelu
+    train = matches_rolling[matches_rolling["Date"] < "2024-01-01"]
     rf = RandomForestClassifier(n_estimators=50, min_samples_split=10, random_state=1)
     rf.fit(train[predictors], train["target"])
-    preds = rf.predict(test[predictors])
-    precision = precision_score(test["target"], preds, average="weighted", zero_division=1)
-    return preds, precision
+    
+    # Predykcja
+    pred = rf.predict(new_match[predictors])[0]
+    result = {1: "Home Win", 0: "Draw", -1: "Away Win"}
+    return result[pred]
 
 predictors = ["venue_code", "opp_code", "hour", "day_code", "FTHG_rolling", "FTAG_rolling"]
-results, precision = make_prediction(matches_rolling, predictors)
 
-print(f"Precision: {precision}")
-print("DIpsko")
-print(matches_rolling) 
+# Endpoint API
+@app.route('/predict', methods=['POST'])
+def predict():
+    data = request.json
+    home_team = data["home_team"]
+    away_team = data["away_team"]
+    date = data["date"]
+    prediction = make_prediction(home_team, away_team, date, predictors)
+    return jsonify({"prediction": prediction})
+
+if __name__ == "__main__":
+    app.run(debug=True)

@@ -1,0 +1,39 @@
+﻿@model FootballPredictionApp.Models.PredictModel
+@{
+    ViewData["Title"] = "Football Prediction";
+}
+<h2>Football Match Prediction</h2>
+
+<form method="post" id="predictionForm">
+    <label for="homeTeam">Home Team:</label><br>
+    <input id="homeTeam" name="homeTeam" type="text" required /><br><br>
+
+    <label for="awayTeam">Away Team:</label><br>
+    <input id="awayTeam" name="awayTeam" type="text" required /><br><br>
+
+    <label for="matchDate">Match Date:</label><br>
+    <input id="matchDate" name="matchDate" type="date" required /><br><br>
+
+    <button type="submit">Get Prediction</button>
+</form>
+
+<h3 id="result"></h3>
+
+<script>
+    document.getElementById("predictionForm").onsubmit = async function (e) {
+        e.preventDefault();
+
+        const homeTeam = document.getElementById("homeTeam").value;
+        const awayTeam = document.getElementById("awayTeam").value;
+        const matchDate = document.getElementById("matchDate").value;
+
+        const response = await fetch('/Home/Predict', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ homeTeam, awayTeam, matchDate })
+        });
+
+        const data = await response.json();
+        document.getElementById("result").innerText = `Prediction: ${data.prediction}`;
+    };
+</script>
