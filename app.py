@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify
 import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import precision_score
 
 app = Flask(__name__)
 
@@ -70,7 +71,7 @@ def make_prediction(home_team, away_team, date, predictors):
 
     # Trening modelu
     train = matches_rolling[matches_rolling["Date"] < "2024-01-01"]
-    rf = RandomForestClassifier(n_estimators=100, min_samples_split=10, random_state=1)
+    rf = RandomForestClassifier(n_estimators=50, min_samples_split=10, random_state=1)
     rf.fit(train[predictors], train["target"])
     
     # Predykcja
@@ -83,15 +84,12 @@ predictors = ["venue_code", "opp_code", "hour", "day_code", "FTHG_rolling", "FTA
 # Endpoint API
 @app.route('/predict', methods=['POST'])
 def predict():
-    if request.is_json:  # Sprawdzamy, czy zapytanie zawiera dane w formacie JSON
-        data = request.get_json()  # Pobieramy dane JSON
-        home_team = data["home_team"]
-        away_team = data["away_team"]
-        date = data["date"]
-        prediction = make_prediction(home_team, away_team, date, predictors)
-        return jsonify({"prediction": prediction})
-    else:
-        return jsonify({"error": "Request must be in JSON format"}), 400
+    data = request.json
+    home_team = data["home_team"]
+    away_team = data["away_team"]
+    date = data["date"]
+    prediction = make_prediction(home_team, away_team, date, predictors)
+    return jsonify({"prediction": prediction})
 
 if __name__ == "__main__":
-   app.run(debug=True, port=5001)
+    app.run(debug=True)
