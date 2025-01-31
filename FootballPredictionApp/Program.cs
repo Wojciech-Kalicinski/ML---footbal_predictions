@@ -1,12 +1,11 @@
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Dodaj us³ugi do kontenera DI.
 builder.Services.AddControllersWithViews();
-builder.Services.AddHttpClient();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// Konfiguracja potoku ¿¹dañ HTTP.
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
@@ -15,13 +14,12 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-
 app.UseRouting();
-
 app.UseAuthorization();
 
+// Mapowanie domyœlnej trasy
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Predictions}/{action=Index}/{id?}");
 
 app.Run();

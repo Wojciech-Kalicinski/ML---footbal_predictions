@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FootballPredictionApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d07cad66aa566f13b46dafe6fd707b5e0f7ec249")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+286c24caf6f658f6d1046e443c5c20df517db03f")]
 [assembly: System.Reflection.AssemblyProductAttribute("FootballPredictionApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FootballPredictionApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

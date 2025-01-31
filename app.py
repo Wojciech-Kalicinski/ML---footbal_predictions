@@ -6,8 +6,8 @@ from sklearn.metrics import precision_score
 app = Flask(__name__)
 
 # Wczytanie i przygotowanie danych (na starcie aplikacji)
-matches = pd.read_csv("E0.csv", index_col=0, on_bad_lines="skip")
-matches2 = pd.read_csv("E1.csv", index_col=0, on_bad_lines="skip")
+matches = pd.read_csv("C:/Users/48512/Documents/GitHub/ML---footbal_predictions/E0.csv", index_col=0, on_bad_lines="skip")
+matches2 = pd.read_csv("C:/Users/48512/Documents/GitHub/ML---footbal_predictions/E1.csv", index_col=0, on_bad_lines="skip")
 
 # Dopasowanie brakujących kolumn
 cols1 = set(matches.columns)
