@@ -16,7 +16,11 @@
     <button type="submit">Predict</button>
 </form>
 
-<div id="predictionResult" style="margin-top: 20px; font-weight: bold;"></div>
+<!-- Pole do wyświetlania wyniku predykcji -->
+<div id="predictionResult" style="margin-top: 20px; font-weight: bold;">
+    <h3>Prediction Result:</h3>
+    <p id="resultText" style="color: blue;"></p>
+</div>
 
 @section Scripts {
     <script>
@@ -33,24 +37,39 @@
                 },
                 body: JSON.stringify({ homeTeam: homeTeam, awayTeam: awayTeam })
             })
-                .then(response => response.json())
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
                 .then(data => {
-                    // Wyświetl wynik predykcji
-                    const resultDiv = document.getElementById('predictionResult');
-                    if (data.result === "1") {
-                        resultDiv.textContent = "Predykcja: Wygrywa drużyna domowa!";
-                    } else if (data.result === "0") {
-                        resultDiv.textContent = "Predykcja: Remis!";
-                    } else if (data.result === "-1") {
-                        resultDiv.textContent = "Predykcja: Wygrywa drużyna wyjazdowa!";
+                    console.log("Server response:", data.result); // Debugowanie - wyświetla wynik w konsoli
+
+                    const resultText = document.getElementById('resultText');
+                    if (data.result.startsWith("Error:")) {
+                        resultText.textContent = data.result;
+                        resultText.style.color = "red";
+                    } else if (data.result.trim() === "1") {
+                        resultText.textContent = "Prediction: Home Team Wins!";
+                        resultText.style.color = "green";
+                    } else if (data.result.trim() === "0") {
+                        resultText.textContent = "Prediction: Draw!";
+                        resultText.style.color = "orange";
+                    } else if (data.result.trim() === "-1") {
+                        resultText.textContent = "Prediction: Away Team Wins!";
+                        resultText.style.color = "red";
                     } else {
-                        resultDiv.textContent = `Błąd: ${data.result}`;
+                        resultText.textContent = `Unexpected error: ${data.result}`;
+                        resultText.style.color = "red";
                     }
                 })
+
                 .catch(error => {
-                    console.error('Błąd:', error);
-                    const resultDiv = document.getElementById('predictionResult');
-                    resultDiv.textContent = "Błąd: Nie udało się uzyskać predykcji.";
+                    console.error('Error:', error);
+                    const resultText = document.getElementById('resultText');
+                    resultText.textContent = "Error: Could not predict the result.";
+                    resultText.style.color = "red";
                 });
         });
     </script>
