@@ -1,0 +1,57 @@
+﻿@{
+    ViewData["Title"] = "Football Predictions";
+}
+
+<h1>Football Predictions</h1>
+
+<form id="predictionForm">
+    <div>
+        <label for="homeTeam">Home Team:</label>
+        <input type="text" id="homeTeam" name="homeTeam" required />
+    </div>
+    <div>
+        <label for="awayTeam">Away Team:</label>
+        <input type="text" id="awayTeam" name="awayTeam" required />
+    </div>
+    <button type="submit">Predict</button>
+</form>
+
+<div id="predictionResult" style="margin-top: 20px; font-weight: bold;"></div>
+
+@section Scripts {
+    <script>
+        document.getElementById('predictionForm').addEventListener('submit', function (event) {
+            event.preventDefault(); // Zapobiegaj domyślnej wysyłce formularza
+
+            const homeTeam = document.getElementById('homeTeam').value;
+            const awayTeam = document.getElementById('awayTeam').value;
+
+            fetch('/Home/Predict', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ homeTeam: homeTeam, awayTeam: awayTeam })
+            })
+                .then(response => response.json())
+                .then(data => {
+                    // Wyświetl wynik predykcji
+                    const resultDiv = document.getElementById('predictionResult');
+                    if (data.result === "1") {
+                        resultDiv.textContent = "Predykcja: Wygrywa drużyna domowa!";
+                    } else if (data.result === "0") {
+                        resultDiv.textContent = "Predykcja: Remis!";
+                    } else if (data.result === "-1") {
+                        resultDiv.textContent = "Predykcja: Wygrywa drużyna wyjazdowa!";
+                    } else {
+                        resultDiv.textContent = `Błąd: ${data.result}`;
+                    }
+                })
+                .catch(error => {
+                    console.error('Błąd:', error);
+                    const resultDiv = document.getElementById('predictionResult');
+                    resultDiv.textContent = "Błąd: Nie udało się uzyskać predykcji.";
+                });
+        });
+    </script>
+}
