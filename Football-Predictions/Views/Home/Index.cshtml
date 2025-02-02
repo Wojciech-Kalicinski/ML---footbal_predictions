@@ -2,30 +2,115 @@
     ViewData["Title"] = "Football Predictions";
 }
 
-<h1>Football Predictions</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
 
-<form id="predictionForm">
-    <div>
-        <label for="homeTeam">Home Team:</label>
-        <input type="text" id="homeTeam" name="homeTeam" required />
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 350px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+            text-align: left;
+            width: 100%;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+            button:hover {
+                background-color: #218838;
+            }
+
+        #predictionResult {
+            margin-top: 20px;
+            font-weight: bold;
+            width: 100%;
+            text-align: center;
+        }
+
+        #resultText {
+            font-size: 18px;
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #f8f9fa;
+            border: 1px solid #ddd;
+            width: 100%;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Football Predictions</h1>
+
+        <form id="predictionForm" style="width: 100%;">
+            <label for="homeTeam">Home Team:</label>
+            <input type="text" id="homeTeam" name="homeTeam" required placeholder="Enter home team" />
+
+            <label for="awayTeam">Away Team:</label>
+            <input type="text" id="awayTeam" name="awayTeam" required placeholder="Enter away team" />
+
+            <button type="submit">Predict</button>
+        </form>
+
+        <div id="predictionResult">
+            <h3>Prediction Result:</h3>
+            <p id="resultText"></p>
+        </div>
     </div>
-    <div>
-        <label for="awayTeam">Away Team:</label>
-        <input type="text" id="awayTeam" name="awayTeam" required />
-    </div>
-    <button type="submit">Predict</button>
-</form>
 
-<!-- Pole do wyświetlania wyniku predykcji -->
-<div id="predictionResult" style="margin-top: 20px; font-weight: bold;">
-    <h3>Prediction Result:</h3>
-    <p id="resultText" style="color: blue;"></p>
-</div>
-
-@section Scripts {
     <script>
         document.getElementById('predictionForm').addEventListener('submit', function (event) {
-            event.preventDefault(); // Zapobiegaj domyślnej wysyłce formularza
+            event.preventDefault();
 
             const homeTeam = document.getElementById('homeTeam').value;
             const awayTeam = document.getElementById('awayTeam').value;
@@ -44,8 +129,7 @@
                     return response.json();
                 })
                 .then(data => {
-                    console.log("Server response:", data.result); // Debugowanie - wyświetla wynik w konsoli
-
+                    console.log("Server response:", data.result);
                     const resultText = document.getElementById('resultText');
                     if (data.result.startsWith("Error:")) {
                         resultText.textContent = data.result;
@@ -64,7 +148,6 @@
                         resultText.style.color = "red";
                     }
                 })
-
                 .catch(error => {
                     console.error('Error:', error);
                     const resultText = document.getElementById('resultText');
@@ -73,4 +156,5 @@
                 });
         });
     </script>
-}
+</body>
+</html>
