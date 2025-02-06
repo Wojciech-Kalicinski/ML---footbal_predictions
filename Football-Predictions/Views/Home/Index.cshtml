@@ -86,6 +86,22 @@
             width: 100%;
             box-sizing: border-box;
         }
+
+        #matchesTable {
+            margin-top: 20px;
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+            #matchesTable th, #matchesTable td {
+                border: 1px solid #ddd;
+                padding: 8px;
+                text-align: center;
+            }
+
+            #matchesTable th {
+                background-color: #f2f2f2;
+            }
     </style>
 </head>
 <body>
@@ -105,6 +121,23 @@
         <div id="predictionResult">
             <h3>Prediction Result:</h3>
             <p id="resultText"></p>
+        </div>
+
+        <div id="matchesSection">
+            <h3>Last 5 Matches:</h3>
+            <table id="matchesTable">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Home Team</th>
+                        <th>Away Team</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Rows will be populated by JavaScript -->
+                </tbody>
+            </table>
         </div>
     </div>
 
@@ -155,6 +188,45 @@
                     resultText.style.color = "red";
                 });
         });
+
+        // Funkcja do pobierania ostatnich meczów
+        async function getLastMatches(teamId) {
+            const response = await fetch('/Home/GetLastMatches', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ teamId: teamId }),
+            });
+
+            const data = await response.json();
+            if (data.result === "Success") {
+                console.log("Ostatnie mecze:", data.matches);
+                displayMatches(data.matches);
+            } else {
+                console.error("Błąd:", data.result);
+            }
+        }
+
+        // Funkcja do wyświetlania meczów w tabeli
+        function displayMatches(matches) {
+            const tableBody = document.querySelector('#matchesTable tbody');
+            tableBody.innerHTML = ''; // Wyczyść tabelę
+
+            matches.forEach(match => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                            <td>${new Date(match.utcDate).toLocaleDateString()}</td>
+                            <td>${match.homeTeam}</td>
+                            <td>${match.awayTeam}</td>
+                            <td>${match.score.fullTimeHome} - ${match.score.fullTimeAway}</td>
+                        `;
+                tableBody.appendChild(row);
+            });
+        }
+
+        // Przykład użycia
+        getLastMatches(57); // 57 to przykładowe ID drużyny (np. Arsenal)
     </script>
 </body>
 </html>

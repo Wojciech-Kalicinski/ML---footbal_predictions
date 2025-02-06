@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Football-Predictions")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0e99b9c6f737069bef13424dbcbb290c9b9deedc")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ed126aefca8f440739e4c362fd61da1f0a1e48e2")]
 [assembly: System.Reflection.AssemblyProductAttribute("Football-Predictions")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Football-Predictions")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
