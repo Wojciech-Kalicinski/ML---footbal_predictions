@@ -1,15 +1,24 @@
+using Football_Predictions.Models;
+using Football_Predictions.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Dodaj konfiguracjê API
+builder.Services.Configure<FootballDataApiSettings>(builder.Configuration.GetSection("FootballDataApi"));
+
+// Dodaj HttpClient do obs³ugi ¿¹dañ HTTP
+builder.Services.AddHttpClient<FootballDataService>();
+
+// Dodaj kontrolery i widoki (jeœli u¿ywasz MVC)
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// Konfiguracja pipeline'u ¿¹dañ HTTP
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+    // Domyœlna wartoœæ HSTS to 30 dni. Mo¿esz to zmieniæ dla œrodowiska produkcyjnego.
     app.UseHsts();
 }
 
@@ -20,6 +29,7 @@ app.UseRouting();
 
 app.UseAuthorization();
 
+// Mapowanie domyœlnej trasy dla kontrolerów
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
