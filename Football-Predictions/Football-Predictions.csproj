@@ -11,4 +11,8 @@
     <PackageReference Include="Python.Runtime" Version="2.7.9" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\Images\" />
+  </ItemGroup>
+
 </Project>

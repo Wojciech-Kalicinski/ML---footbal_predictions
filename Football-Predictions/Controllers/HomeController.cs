@@ -41,7 +41,19 @@ namespace Football_Predictions.Controllers
                 return Json(new { result = $"Error: {ex.Message}" });
             }
         }
-
+        [HttpPost]
+        public async Task<IActionResult> GetLeagueStandings()
+        {
+            try
+            {
+                var standings = await _footballDataService.GetLeagueStandingsAsync();
+                return Json(new { result = "Success", standings });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { result = $"Error: {ex.Message}" });
+            }
+        }
         // Metoda do obs³ugi predykcji
         [HttpPost]
         public IActionResult Predict([FromBody] PredictionRequest request)

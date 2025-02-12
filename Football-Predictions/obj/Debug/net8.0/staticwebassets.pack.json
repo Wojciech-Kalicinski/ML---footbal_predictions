@@ -5,6 +5,14 @@
       "PackagePath": "staticwebassets\\Football-Predictions.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\48512\\Documents\\GitHub\\ML---footbal_predictions\\Football-Predictions\\wwwroot\\Images\\Premier-League.png",
+      "PackagePath": "staticwebassets\\Images\\Premier-League.png"
+    },
+    {
+      "Id": "C:\\Users\\48512\\Documents\\GitHub\\ML---footbal_predictions\\Football-Predictions\\wwwroot\\Images\\Premier-League.webp",
+      "PackagePath": "staticwebassets\\Images\\Premier-League.webp"
+    },
+    {
       "Id": "C:\\Users\\48512\\Documents\\GitHub\\ML---footbal_predictions\\Football-Predictions\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },

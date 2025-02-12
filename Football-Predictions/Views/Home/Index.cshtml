@@ -1,30 +1,30 @@
-﻿@{
-    ViewData["Title"] = "Football Predictions";
-}
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewData["Title"]</title>
+    <title>Football Predictions</title>
     <style>
+        /* Ustawienie tła */
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            background: url("/Images/Premier-League.webp") no-repeat center center fixed;
+            background-size: cover;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
+            font-family: Arial, sans-serif;
         }
 
+        /* Kontener formularza */
         .container {
-            background: white;
+            background: rgba(255, 255, 255, 0.9);
             padding: 30px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             text-align: center;
+            height: 500px;
             width: 350px;
             display: flex;
             flex-direction: column;
@@ -86,27 +86,13 @@
             width: 100%;
             box-sizing: border-box;
         }
-
-        #matchesTable {
-            margin-top: 20px;
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-            #matchesTable th, #matchesTable td {
-                border: 1px solid #ddd;
-                padding: 8px;
-                text-align: center;
-            }
-
-            #matchesTable th {
-                background-color: #f2f2f2;
-            }
     </style>
 </head>
 <body>
+
+    <!-- Kontener na formularz -->
     <div class="container">
-        <h1>Football Predictions</h1>
+        <h1>Premier League Predictions</h1>
 
         <form id="predictionForm" style="width: 100%;">
             <label for="homeTeam">Home Team:</label>
@@ -121,23 +107,6 @@
         <div id="predictionResult">
             <h3>Prediction Result:</h3>
             <p id="resultText"></p>
-        </div>
-
-        <div id="matchesSection">
-            <h3>Last 5 Matches:</h3>
-            <table id="matchesTable">
-                <thead>
-                    <tr>
-                        <th>Date</th>
-                        <th>Home Team</th>
-                        <th>Away Team</th>
-                        <th>Score</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Rows will be populated by JavaScript -->
-                </tbody>
-            </table>
         </div>
     </div>
 
@@ -188,45 +157,7 @@
                     resultText.style.color = "red";
                 });
         });
-
-        // Funkcja do pobierania ostatnich meczów
-        async function getLastMatches(teamId) {
-            const response = await fetch('/Home/GetLastMatches', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ teamId: teamId }),
-            });
-
-            const data = await response.json();
-            if (data.result === "Success") {
-                console.log("Ostatnie mecze:", data.matches);
-                displayMatches(data.matches);
-            } else {
-                console.error("Błąd:", data.result);
-            }
-        }
-
-        // Funkcja do wyświetlania meczów w tabeli
-        function displayMatches(matches) {
-            const tableBody = document.querySelector('#matchesTable tbody');
-            tableBody.innerHTML = ''; // Wyczyść tabelę
-
-            matches.forEach(match => {
-                const row = document.createElement('tr');
-                row.innerHTML = `
-                            <td>${new Date(match.utcDate).toLocaleDateString()}</td>
-                            <td>${match.homeTeam}</td>
-                            <td>${match.awayTeam}</td>
-                            <td>${match.score.fullTimeHome} - ${match.score.fullTimeAway}</td>
-                        `;
-                tableBody.appendChild(row);
-            });
-        }
-
-        // Przykład użycia
-        getLastMatches(57); // 57 to przykładowe ID drużyny (np. Arsenal)
     </script>
+
 </body>
 </html>

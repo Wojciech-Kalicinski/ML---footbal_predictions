@@ -34,6 +34,23 @@ namespace Football_Predictions.Services
 
             throw new Exception($"Failed to fetch matches: {response.StatusCode}");
         }
+
+        public async Task<StendingsResponse> GetLeagueStandingsAsync()
+        {
+            var url = $"{_apiSettings.BaseUrl}competitions/PL/standings";
+            var response = await _httpClient.GetAsync(url);
+
+            if (response.IsSuccessStatusCode)
+            {
+                var content = await response.Content.ReadAsStringAsync();
+                var standings = JsonSerializer.Deserialize<StendingsResponse>(content);
+                return standings;
+            }
+
+            throw new Exception($"Failed to fetch league standings: {response.StatusCode}");
+        }
+
+
     }
 
     // Klasy do deserializacji odpowiedzi z API
