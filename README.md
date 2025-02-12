@@ -32,9 +32,7 @@ pip install pandas numpy scikit-learn joblib
 
 Setup
 
-1.Clone the repository:
-git clone https://github.com/yourusername/football-predictions.git  
-cd football-predictions
+1.Clone the repository
 2. Run the ASP.NET Core application
 
 
