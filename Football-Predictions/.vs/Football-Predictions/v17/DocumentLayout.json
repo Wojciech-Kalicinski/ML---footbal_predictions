@@ -3,28 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\48512\\Documents\\GitHub\\ML---footbal_predictions\\Football-Predictions\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F388E8E5-A9F3-4B24-B8AB-6C55603268CF}|Football-Predictions.csproj|c:\\users\\48512\\documents\\github\\ml---footbal_predictions\\football-predictions\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{F388E8E5-A9F3-4B24-B8AB-6C55603268CF}|Football-Predictions.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F388E8E5-A9F3-4B24-B8AB-6C55603268CF}|Football-Predictions.csproj|c:\\users\\48512\\documents\\github\\ml---footbal_predictions\\football-predictions\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{F388E8E5-A9F3-4B24-B8AB-6C55603268CF}|Football-Predictions.csproj|solutionrelative:views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F388E8E5-A9F3-4B24-B8AB-6C55603268CF}|Football-Predictions.csproj|c:\\users\\48512\\documents\\github\\ml---footbal_predictions\\football-predictions\\models\\stendingsresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F388E8E5-A9F3-4B24-B8AB-6C55603268CF}|Football-Predictions.csproj|solutionrelative:models\\stendingsresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F388E8E5-A9F3-4B24-B8AB-6C55603268CF}|Football-Predictions.csproj|c:\\users\\48512\\documents\\github\\ml---footbal_predictions\\football-predictions\\services\\footballdataservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F388E8E5-A9F3-4B24-B8AB-6C55603268CF}|Football-Predictions.csproj|solutionrelative:services\\footballdataservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{F388E8E5-A9F3-4B24-B8AB-6C55603268CF}|Football-Predictions.csproj|c:\\users\\48512\\documents\\github\\ml---footbal_predictions\\football-predictions\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F388E8E5-A9F3-4B24-B8AB-6C55603268CF}|Football-Predictions.csproj|solutionrelative:controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F388E8E5-A9F3-4B24-B8AB-6C55603268CF}|Football-Predictions.csproj|c:\\users\\48512\\documents\\github\\ml---footbal_predictions\\football-predictions\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F388E8E5-A9F3-4B24-B8AB-6C55603268CF}|Football-Predictions.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F388E8E5-A9F3-4B24-B8AB-6C55603268CF}|Football-Predictions.csproj|c:\\users\\48512\\documents\\github\\ml---footbal_predictions\\football-predictions\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F388E8E5-A9F3-4B24-B8AB-6C55603268CF}|Football-Predictions.csproj|solutionrelative:views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F388E8E5-A9F3-4B24-B8AB-6C55603268CF}|Football-Predictions.csproj|c:\\users\\48512\\documents\\github\\ml---footbal_predictions\\football-predictions\\services\\footballdataservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F388E8E5-A9F3-4B24-B8AB-6C55603268CF}|Football-Predictions.csproj|solutionrelative:services\\footballdataservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F388E8E5-A9F3-4B24-B8AB-6C55603268CF}|Football-Predictions.csproj|c:\\users\\48512\\documents\\github\\ml---footbal_predictions\\football-predictions\\models\\footballdataapisettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -33,6 +21,26 @@
     {
       "AbsoluteMoniker": "D:0:0:{F388E8E5-A9F3-4B24-B8AB-6C55603268CF}|Football-Predictions.csproj|c:\\users\\48512\\documents\\github\\ml---footbal_predictions\\football-predictions\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{F388E8E5-A9F3-4B24-B8AB-6C55603268CF}|Football-Predictions.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F388E8E5-A9F3-4B24-B8AB-6C55603268CF}|Football-Predictions.csproj|c:\\users\\48512\\documents\\github\\ml---footbal_predictions\\football-predictions\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F388E8E5-A9F3-4B24-B8AB-6C55603268CF}|Football-Predictions.csproj|solutionrelative:views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F388E8E5-A9F3-4B24-B8AB-6C55603268CF}|Football-Predictions.csproj|c:\\users\\48512\\documents\\github\\ml---footbal_predictions\\football-predictions\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F388E8E5-A9F3-4B24-B8AB-6C55603268CF}|Football-Predictions.csproj|solutionrelative:views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F388E8E5-A9F3-4B24-B8AB-6C55603268CF}|Football-Predictions.csproj|c:\\users\\48512\\documents\\github\\ml---footbal_predictions\\football-predictions\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{F388E8E5-A9F3-4B24-B8AB-6C55603268CF}|Football-Predictions.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F388E8E5-A9F3-4B24-B8AB-6C55603268CF}|Football-Predictions.csproj|c:\\users\\48512\\documents\\github\\ml---footbal_predictions\\football-predictions\\models\\stendingsresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F388E8E5-A9F3-4B24-B8AB-6C55603268CF}|Football-Predictions.csproj|solutionrelative:models\\stendingsresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F388E8E5-A9F3-4B24-B8AB-6C55603268CF}|Football-Predictions.csproj|c:\\users\\48512\\documents\\github\\ml---footbal_predictions\\football-predictions\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F388E8E5-A9F3-4B24-B8AB-6C55603268CF}|Football-Predictions.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,11 +50,102 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "_ViewStart.cshtml",
+              "DocumentMoniker": "C:\\Users\\48512\\Documents\\GitHub\\ML---footbal_predictions\\Football-Predictions\\Views\\_ViewStart.cshtml",
+              "RelativeDocumentMoniker": "Views\\_ViewStart.cshtml",
+              "ToolTip": "C:\\Users\\48512\\Documents\\GitHub\\ML---footbal_predictions\\Football-Predictions\\Views\\_ViewStart.cshtml",
+              "RelativeToolTip": "Views\\_ViewStart.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-19T19:32:20.926Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "FootballDataService.cs",
+              "DocumentMoniker": "C:\\Users\\48512\\Documents\\GitHub\\ML---footbal_predictions\\Football-Predictions\\Services\\FootballDataService.cs",
+              "RelativeDocumentMoniker": "Services\\FootballDataService.cs",
+              "ToolTip": "C:\\Users\\48512\\Documents\\GitHub\\ML---footbal_predictions\\Football-Predictions\\Services\\FootballDataService.cs",
+              "RelativeToolTip": "Services\\FootballDataService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-06T22:56:07.657Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "FootballDataApiSettings.cs",
+              "DocumentMoniker": "C:\\Users\\48512\\Documents\\GitHub\\ML---footbal_predictions\\Football-Predictions\\Models\\FootballDataApiSettings.cs",
+              "RelativeDocumentMoniker": "Models\\FootballDataApiSettings.cs",
+              "ToolTip": "C:\\Users\\48512\\Documents\\GitHub\\ML---footbal_predictions\\Football-Predictions\\Models\\FootballDataApiSettings.cs",
+              "RelativeToolTip": "Models\\FootballDataApiSettings.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-06T22:52:47.398Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\48512\\Documents\\GitHub\\ML---footbal_predictions\\Football-Predictions\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "C:\\Users\\48512\\Documents\\GitHub\\ML---footbal_predictions\\Football-Predictions\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-02-06T22:51:16.764Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\48512\\Documents\\GitHub\\ML---footbal_predictions\\Football-Predictions\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\48512\\Documents\\GitHub\\ML---footbal_predictions\\Football-Predictions\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvxEAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-02T19:13:00.346Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\48512\\Documents\\GitHub\\ML---footbal_predictions\\Football-Predictions\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\48512\\Documents\\GitHub\\ML---footbal_predictions\\Football-Predictions\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "Controllers\\HomeController.cs",
+              "ViewState": "AgIAACkAAAAAAAAAAAAwwDcAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-01T19:45:08.775Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "_ViewImports.cshtml",
+              "DocumentMoniker": "C:\\Users\\48512\\Documents\\GitHub\\ML---footbal_predictions\\Football-Predictions\\Views\\_ViewImports.cshtml",
+              "RelativeDocumentMoniker": "Views\\_ViewImports.cshtml",
+              "ToolTip": "C:\\Users\\48512\\Documents\\GitHub\\ML---footbal_predictions\\Football-Predictions\\Views\\_ViewImports.cshtml",
+              "RelativeToolTip": "Views\\_ViewImports.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-19T19:32:22.543Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "StendingsResponse.cs",
               "DocumentMoniker": "C:\\Users\\48512\\Documents\\GitHub\\ML---footbal_predictions\\Football-Predictions\\Models\\StendingsResponse.cs",
               "RelativeDocumentMoniker": "Models\\StendingsResponse.cs",
@@ -54,64 +153,11 @@
               "RelativeToolTip": "Models\\StendingsResponse.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAqAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-12T15:55:57.213Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-12T15:55:57.213Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "FootballDataService.cs",
-              "DocumentMoniker": "C:\\Users\\48512\\Documents\\GitHub\\ML---footbal_predictions\\Football-Predictions\\Services\\FootballDataService.cs",
-              "RelativeDocumentMoniker": "Services\\FootballDataService.cs",
-              "ToolTip": "C:\\Users\\48512\\Documents\\GitHub\\ML---footbal_predictions\\Football-Predictions\\Services\\FootballDataService.cs",
-              "RelativeToolTip": "Services\\FootballDataService.cs",
-              "ViewState": "AQIAAB4AAAAAAAAAAAArwDQAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-06T22:56:07.657Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "FootballDataApiSettings.cs",
-              "DocumentMoniker": "C:\\Users\\48512\\Documents\\GitHub\\ML---footbal_predictions\\Football-Predictions\\Models\\FootballDataApiSettings.cs",
-              "RelativeDocumentMoniker": "Models\\FootballDataApiSettings.cs",
-              "ToolTip": "C:\\Users\\48512\\Documents\\GitHub\\ML---footbal_predictions\\Football-Predictions\\Models\\FootballDataApiSettings.cs",
-              "RelativeToolTip": "Models\\FootballDataApiSettings.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAaAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-06T22:52:47.398Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\48512\\Documents\\GitHub\\ML---footbal_predictions\\Football-Predictions\\appsettings.json",
-              "RelativeDocumentMoniker": "appsettings.json",
-              "ToolTip": "C:\\Users\\48512\\Documents\\GitHub\\ML---footbal_predictions\\Football-Predictions\\appsettings.json",
-              "RelativeToolTip": "appsettings.json",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-02-06T22:51:16.764Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\48512\\Documents\\GitHub\\ML---footbal_predictions\\Football-Predictions\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\48512\\Documents\\GitHub\\ML---footbal_predictions\\Football-Predictions\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-02-02T19:13:00.346Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 9,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\48512\\Documents\\GitHub\\ML---footbal_predictions\\Football-Predictions\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
@@ -119,33 +165,19 @@
               "RelativeToolTip": "Program.cs",
               "ViewState": "AQIAAAIAAAAAAAAAAAAkwCQAAAAKAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-01T21:55:14.692Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-01T21:55:14.692Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 6,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\48512\\Documents\\GitHub\\ML---footbal_predictions\\Football-Predictions\\Views\\Home\\Index.cshtml",
               "RelativeDocumentMoniker": "Views\\Home\\Index.cshtml",
               "ToolTip": "C:\\Users\\48512\\Documents\\GitHub\\ML---footbal_predictions\\Football-Predictions\\Views\\Home\\Index.cshtml",
               "RelativeToolTip": "Views\\Home\\Index.cshtml",
-              "ViewState": "AQIAAIUAAAAAAAAAAADwv6MAAAAAAAAA",
+              "ViewState": "AgIAAGoAAAAAAAAAAADwv6MAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-02-01T19:45:27.196Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "HomeController.cs",
-              "DocumentMoniker": "C:\\Users\\48512\\Documents\\GitHub\\ML---footbal_predictions\\Football-Predictions\\Controllers\\HomeController.cs",
-              "RelativeDocumentMoniker": "Controllers\\HomeController.cs",
-              "ToolTip": "C:\\Users\\48512\\Documents\\GitHub\\ML---footbal_predictions\\Football-Predictions\\Controllers\\HomeController.cs",
-              "RelativeToolTip": "Controllers\\HomeController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAADcAAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-01T19:45:08.775Z",
               "EditorCaption": ""
             }
           ]

@@ -29,3 +29,7 @@ C:\Users\48512\Documents\GitHub\ML---footbal_predictions\Football-Predictions\ob
 C:\Users\48512\Documents\GitHub\ML---footbal_predictions\Football-Predictions\obj\Debug\net8.0\Football-Predictions.pdb
 C:\Users\48512\Documents\GitHub\ML---footbal_predictions\Football-Predictions\obj\Debug\net8.0\Football-Predictions.genruntimeconfig.cache
 C:\Users\48512\Documents\GitHub\ML---footbal_predictions\Football-Predictions\obj\Debug\net8.0\ref\Football-Predictions.dll
+C:\Users\48512\Documents\GitHub\ML---footbal_predictions\Football-Predictions\bin\Debug\net8.0\Football-Predictions.staticwebassets.endpoints.json
+C:\Users\48512\Documents\GitHub\ML---footbal_predictions\Football-Predictions\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+C:\Users\48512\Documents\GitHub\ML---footbal_predictions\Football-Predictions\obj\Debug\net8.0\staticwebassets\msbuild.Football-Predictions.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+C:\Users\48512\Documents\GitHub\ML---footbal_predictions\Football-Predictions\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

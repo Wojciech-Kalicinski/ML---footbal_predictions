@@ -2,7 +2,7 @@
   "Files": [
     {
       "Id": "C:\\Users\\48512\\Documents\\GitHub\\ML---footbal_predictions\\Football-Predictions\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\Football-Predictions.bundle.scp.css",
-      "PackagePath": "staticwebassets\\Football-Predictions.bundle.scp.css"
+      "PackagePath": "staticwebassets\\Football-Predictions.6gn1gjzlt0.bundle.scp.css"
     },
     {
       "Id": "C:\\Users\\48512\\Documents\\GitHub\\ML---footbal_predictions\\Football-Predictions\\wwwroot\\Images\\Premier-League.png",
@@ -251,6 +251,10 @@
     {
       "Id": "C:\\Users\\48512\\Documents\\GitHub\\ML---footbal_predictions\\Football-Predictions\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.Football-Predictions.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.Football-Predictions.Microsoft.AspNetCore.StaticWebAssets.props",
