@@ -1,37 +1,43 @@
 using Football_Predictions.Models;
 using Football_Predictions.Services;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Dodaj konfiguracjê API
-builder.Services.Configure<FootballDataApiSettings>(builder.Configuration.GetSection("FootballDataApi"));
-
-// Dodaj HttpClient do obs³ugi ¿¹dañ HTTP
-builder.Services.AddHttpClient<FootballDataService>();
-
-// Dodaj kontrolery i widoki (jeœli u¿ywasz MVC)
+// Add the MVC configuration for controllers and views
 builder.Services.AddControllersWithViews();
+builder.Services.AddHttpClient<FootballDataService>(); // Register FootballDataService with HttpClient
+
 
 var app = builder.Build();
 
-// Konfiguracja pipeline'u ¿¹dañ HTTP
+// Configure the HTTP request pipeline
 if (!app.Environment.IsDevelopment())
 {
+    // In production, use the error handler for exceptions
     app.UseExceptionHandler("/Home/Error");
-    // Domyœlna wartoœæ HSTS to 30 dni. Mo¿esz to zmieniæ dla œrodowiska produkcyjnego.
+    // The default HSTS value is set to 30 days. You can change it for a production environment
     app.UseHsts();
 }
 
+// Use HTTPS redirection
 app.UseHttpsRedirection();
+
+// Serve static files like images, CSS, JavaScript, etc.
 app.UseStaticFiles();
 
+// Enable routing to map the controller actions
 app.UseRouting();
 
+// Enable authorization for secure endpoints
 app.UseAuthorization();
 
-// Mapowanie domyœlnej trasy dla kontrolerów
+// Map the default route for controllers
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
+// Run the application
 app.Run();

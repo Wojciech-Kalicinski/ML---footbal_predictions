@@ -14,13 +14,13 @@ namespace Football_Predictions.Controllers
             _footballDataService = footballDataService;
         }
 
-        // Metoda do obs³ugi strony g³ównej
+        // Main page handler
         public IActionResult Index()
         {
             return View();
         }
 
-        // Metoda do pobierania ostatnich meczów
+        // Method to fetch last matches of a team
         [HttpPost]
         public async Task<IActionResult> GetLastMatches([FromBody] TeamRequest request)
         {
@@ -31,7 +31,7 @@ namespace Football_Predictions.Controllers
                     return Json(new { result = "Error: Team ID must be provided." });
                 }
 
-                // Pobierz ostatnie mecze dla wybranej dru¿yny
+                // Fetch last matches for the selected team
                 var matches = await _footballDataService.GetLastMatchesAsync(request.TeamId);
 
                 return Json(new { result = "Success", matches });
@@ -41,6 +41,8 @@ namespace Football_Predictions.Controllers
                 return Json(new { result = $"Error: {ex.Message}" });
             }
         }
+
+        // Method to get league standings
         [HttpPost]
         public async Task<IActionResult> GetLeagueStandings()
         {
@@ -54,50 +56,49 @@ namespace Football_Predictions.Controllers
                 return Json(new { result = $"Error: {ex.Message}" });
             }
         }
-        // Metoda do obs³ugi predykcji
+
+        // Prediction method that runs a Python script
         [HttpPost]
         public IActionResult Predict([FromBody] PredictionRequest request)
         {
             try
             {
-                // SprawdŸ, czy argumenty nie s¹ puste
+                // Check if input arguments are valid
                 if (string.IsNullOrEmpty(request.HomeTeam) || string.IsNullOrEmpty(request.AwayTeam))
                 {
                     return Json(new { result = "Error: Home team and away team must be provided." });
                 }
 
-                // Œcie¿ka do skryptu Pythona
+                // Path to the Python script (ensure this path is correct in your environment)
                 string pythonScriptPath = @"C:\Users\48512\Documents\GitHub\ML---footbal_predictions\predict.py";
 
-                // Uruchom proces Pythona z odpowiednimi argumentami
+                // Start a Python process with the required arguments
                 var process = new Process
                 {
                     StartInfo = new ProcessStartInfo
                     {
-                        FileName = "python", // Nazwa interpretera Pythona
-                        Arguments = $"\"{pythonScriptPath}\" \"{request.HomeTeam}\" \"{request.AwayTeam}\"", // Przekazanie argumentów
-                        RedirectStandardOutput = true, // Przekieruj wyjœcie
-                        RedirectStandardError = true, // Przekieruj b³êdy
-                        UseShellExecute = false, // Nie u¿ywaj pow³oki systemowej
-                        CreateNoWindow = true, // Nie twórz okna konsoli
+                        FileName = "python", // Python interpreter
+                        Arguments = $"\"{pythonScriptPath}\" \"{request.HomeTeam}\" \"{request.AwayTeam}\"",
+                        RedirectStandardOutput = true,
+                        RedirectStandardError = true,
+                        UseShellExecute = false,
+                        CreateNoWindow = true,
                     }
                 };
 
                 process.Start();
-                string output = process.StandardOutput.ReadToEnd(); // Odczytaj wynik z Pythona
-                string error = process.StandardError.ReadToEnd(); // Odczytaj b³êdy z Pythona
+                string output = process.StandardOutput.ReadToEnd(); // Read Python script output
+                string error = process.StandardError.ReadToEnd(); // Read any error messages
                 process.WaitForExit();
 
-                // Jeœli wyst¹pi³ b³¹d, zwróæ go
+                // Handle Python script errors
                 if (!string.IsNullOrEmpty(error))
                 {
                     return Json(new { result = $"Python Error: {error}" });
                 }
 
-                // Usuñ niepotrzebne bia³e znaki z outputu i sprawdŸ wynik
+                // Trim and validate the output
                 string prediction = output.Trim();
-
-                // SprawdŸ, czy wynik to poprawna liczba (1, 0, -1)
                 if (prediction == "1" || prediction == "0" || prediction == "-1")
                 {
                     return Json(new { result = prediction });
@@ -113,7 +114,7 @@ namespace Football_Predictions.Controllers
             }
         }
 
-        // Klasa do mapowania danych z ¿¹dania JSON
+        // Data models for API requests
         public class TeamRequest
         {
             public int TeamId { get; set; }

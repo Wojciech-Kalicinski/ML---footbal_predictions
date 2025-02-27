@@ -15,11 +15,12 @@ namespace Football_Predictions.Services
             _httpClient = httpClient;
             _apiSettings = apiSettings.Value;
 
-            // Ustaw nagłówek z kluczem API
+            // Set API key in request headers (ensure API key is configured in appsettings.json)
             _httpClient.DefaultRequestHeaders.Add("X-Auth-Token", _apiSettings.ApiKey);
             _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
 
+        // Fetch last matches for a given team
         public async Task<List<Match>> GetLastMatchesAsync(int teamId, int count = 5)
         {
             var url = $"{_apiSettings.BaseUrl}teams/{teamId}/matches?status=FINISHED&limit={count}";
@@ -35,7 +36,8 @@ namespace Football_Predictions.Services
             throw new Exception($"Failed to fetch matches: {response.StatusCode}");
         }
 
-        public async Task<StendingsResponse> GetLeagueStandingsAsync()
+        // Fetch current league standings
+        public async Task<StandingsResponse> GetLeagueStandingsAsync()
         {
             var url = $"{_apiSettings.BaseUrl}competitions/PL/standings";
             var response = await _httpClient.GetAsync(url);
@@ -43,17 +45,15 @@ namespace Football_Predictions.Services
             if (response.IsSuccessStatusCode)
             {
                 var content = await response.Content.ReadAsStringAsync();
-                var standings = JsonSerializer.Deserialize<StendingsResponse>(content);
+                var standings = JsonSerializer.Deserialize<StandingsResponse>(content);
                 return standings;
             }
 
             throw new Exception($"Failed to fetch league standings: {response.StatusCode}");
         }
-
-
     }
 
-    // Klasy do deserializacji odpowiedzi z API
+    // Classes to deserialize API responses
     public class MatchesResponse
     {
         public List<Match> Matches { get; set; }

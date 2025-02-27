@@ -1,4 +1,4 @@
-﻿public class StendingsResponse
+﻿public class StandingsResponse
 {
     public List<Standing> Standings { get; set; }
 }
